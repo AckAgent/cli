@@ -44,7 +44,7 @@ ackagent-audit:
 	go build -ldflags="$(DEV_LDFLAGS)" -o ackagent-audit ./cmd/ackagent-audit
 
 # BBS+ FFI version to download
-BBS_FFI_VERSION ?= v0.3.4
+BBS_FFI_VERSION ?= v0.3.0
 BBS_FFI_REPO = ackagent/bbs-ffi
 
 # Download BBS+ FFI static library and header from GitHub Release
