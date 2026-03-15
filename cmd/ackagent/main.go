@@ -64,6 +64,8 @@ var rootCmd = &cobra.Command{
 }
 
 func init() {
+	rootCmd.SetVersionTemplate("{{.Version}}\n")
+
 	// Persistent flags - available to ALL subcommands
 	rootCmd.PersistentFlags().StringVarP(&cfgDir, "config-dir", "c", "", "Use alternative config directory")
 	rootCmd.PersistentFlags().StringVarP(&profile, "profile", "p", "", "Use specified profile (overrides active)")
