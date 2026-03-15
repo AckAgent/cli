@@ -5,7 +5,7 @@ go 1.24.1
 require (
 	filippo.io/age v1.3.0
 	github.com/BurntSushi/toml v1.6.0
-	github.com/ackagent/api v0.3.3
+	github.com/ackagent/api v0.3.4
 	github.com/fxamacker/cbor/v2 v2.9.0
 	github.com/google/uuid v1.6.0
 	github.com/skip2/go-qrcode v0.0.0-20200617195104-da1b6568686e

@@ -44,7 +44,7 @@ ackagent-audit:
 	go build -ldflags="$(DEV_LDFLAGS)" -o ackagent-audit ./cmd/ackagent-audit
 
 # BBS+ FFI version to download
-BBS_FFI_VERSION ?= v0.1.0
+BBS_FFI_VERSION ?= v0.3.4
 BBS_FFI_REPO = ackagent/bbs-ffi
 
 # Download BBS+ FFI static library and header from GitHub Release
@@ -66,7 +66,7 @@ download-bbs-ffi:
 	fi
 
 # Cross-platform test vectors — downloaded from ackagent/api (single source of truth)
-TEST_VECTORS_VERSION ?= v0.1.12
+TEST_VECTORS_VERSION ?= v0.3.4
 TEST_VECTORS_BASE = https://raw.githubusercontent.com/AckAgent/api/$(TEST_VECTORS_VERSION)
 
 download-test-vectors:
