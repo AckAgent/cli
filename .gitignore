@@ -1,0 +1,39 @@
+# Binaries
+/ackagent
+/ackagent-pam
+/ackagent-audit
+/age-plugin-ackagent
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.h
+
+# BBS+ FFI dependencies (downloaded at build time)
+deps/
+
+# Cross-platform test vectors (downloaded from ackagent/api)
+data/crypto_test_vectors.json
+data/protocol_test_vectors.json
+
+# Test binary
+*.test
+
+# Output of go coverage
+*.out
+coverage.out.tmp
+
+# Go workspace
+go.work
+go.work.sum
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

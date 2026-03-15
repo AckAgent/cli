@@ -1,0 +1,59 @@
+# AckAgent PAM Module Configuration
+# Copy this file to /etc/ackagent/pam.conf and edit as needed.
+
+[organization]
+# Your organization ID (required)
+# id = "your-org-id"
+
+# Organization domain for user lookup (optional)
+# domain = "example.com"
+
+# Path to organization private key for signing requests (optional)
+# private_key_file = "/etc/ackagent/org.key"
+
+[auth]
+# Authentication mode: push | challenge | fallback
+# - push: Push notification only (default)
+# - challenge: Challenge-response only
+# - fallback: Try push, fall back to password on timeout
+mode = "fallback"
+
+# Timeout in seconds for push authentication (default: 120)
+timeout = 120
+
+# Require device attestation for authentication (default: false)
+require_attestation = false
+
+[users]
+# Map system usernames to AckAgent email addresses
+# Format: username = "email@example.com"
+#
+# If not specified, the PAM module will attempt to look up the user
+# by username in the organization's user directory.
+#
+# Examples:
+# alice = "alice@example.com"
+# bob = "bob.smith@example.com"
+
+[cache]
+# Enable local caching of device keys (default: false)
+# This can speed up authentication but may use stale keys.
+enabled = false
+
+# Path to cache file (default: /var/lib/ackagent/device-keys.cache)
+# cache_file = "/var/lib/ackagent/device-keys.cache"
+
+[api]
+# Override API endpoints (optional, for self-hosted deployments)
+# login_url = "https://login.ackagent.com"
+# relay_url = "https://relay.ackagent.com"
+
+[logging]
+# Log level: debug | info | warn | error (default: info)
+level = "info"
+
+# Log to syslog (default: true)
+syslog = true
+
+# Log to file (optional)
+# file = "/var/log/ackagent-pam.log"

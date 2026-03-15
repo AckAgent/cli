@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<installer-gui-script minSpecVersion="2">
+    <title>AckAgent PAM Tools</title>
+    <organization>com.ackagent</organization>
+    <domains enable_localSystem="true"/>
+    <options customize="never" require-scripts="true" rootVolumeOnly="true" hostArchitectures="arm64"/>
+
+    <!-- Minimum macOS 11.0 (Big Sur) - first with ARM support -->
+    <volume-check>
+        <allowed-os-versions>
+            <os-version min="11.0"/>
+        </allowed-os-versions>
+    </volume-check>
+
+    <welcome file="welcome.html" mime-type="text/html"/>
+
+    <choices-outline>
+        <line choice="default">
+            <line choice="com.ackagent.pam"/>
+        </line>
+    </choices-outline>
+
+    <choice id="default"/>
+
+    <choice id="com.ackagent.pam" visible="false">
+        <pkg-ref id="com.ackagent.pam"/>
+    </choice>
+
+    <pkg-ref id="com.ackagent.pam" version="0" onConclusion="none">ackagent-pam-component.pkg</pkg-ref>
+</installer-gui-script>

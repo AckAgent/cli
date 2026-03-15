@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-size: 13px;
+            line-height: 1.5;
+            padding: 20px;
+        }
+        h1 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 14px;
+            margin-top: 20px;
+            margin-bottom: 8px;
+        }
+        code {
+            font-family: "SF Mono", Monaco, monospace;
+            font-size: 12px;
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>AckAgent CLI Tools</h1>
+    <p>This installer will install the AckAgent command-line tools:</p>
+
+    <ul>
+        <li><code>ackagent</code> - Main CLI for login, GPG signing, and Claude Code hooks</li>
+        <li><code>libackagent-sk.dylib</code> - SSH SecurityKeyProvider for hardware-backed SSH keys</li>
+    </ul>
+
+    <h2>Installation Locations</h2>
+    <ul>
+        <li><code>/usr/local/bin/ackagent</code></li>
+        <li><code>/usr/local/lib/libackagent-sk.dylib</code></li>
+    </ul>
+
+    <h2>After Installation</h2>
+    <p>Run <code>ackagent login</code> to authenticate with your account.</p>
+    <p>For SSH support, add to <code>~/.ssh/config</code>:</p>
+    <code>SecurityKeyProvider /usr/local/lib/libackagent-sk.dylib</code>
+</body>
+</html>

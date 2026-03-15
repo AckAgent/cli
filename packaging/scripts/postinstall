@@ -1,0 +1,15 @@
+#!/bin/bash
+# AckAgent CLI Post-Install Script
+
+set -e
+
+# Ensure executables have correct permissions
+chmod 755 /usr/local/bin/ackagent
+chmod 755 /usr/local/bin/age-plugin-ackagent
+chmod 755 /usr/local/lib/libackagent-sk.dylib
+chmod 755 /usr/local/lib/libackagent-pkcs11.dylib
+
+# Log installation
+logger "AckAgent CLI installed successfully"
+
+exit 0

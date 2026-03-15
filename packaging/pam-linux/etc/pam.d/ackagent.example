@@ -1,0 +1,64 @@
+# AckAgent PAM Service Configuration Example
+#
+# This file shows example PAM configurations for integrating
+# the AckAgent PAM module with various services.
+
+# =============================================================
+# SSH Authentication
+# =============================================================
+# Add to /etc/pam.d/sshd before @include common-auth:
+#
+# # AckAgent push authentication (try first, fall back to password)
+# auth    [success=done default=ignore]    pam_ackagent.so
+#
+# This configuration:
+# - Attempts AckAgent push authentication first
+# - If successful, skips remaining auth modules
+# - If unsuccessful or timed out, continues to password auth
+#
+# For AckAgent-only authentication (no password fallback):
+# auth    required    pam_ackagent.so
+
+# =============================================================
+# Sudo Authentication
+# =============================================================
+# Add to /etc/pam.d/sudo at the top:
+#
+# # AckAgent push authentication for sudo
+# auth    sufficient    pam_ackagent.so
+#
+# This allows sudo with push approval, falling back to password.
+
+# =============================================================
+# System Login (TTY/Console)
+# =============================================================
+# Add to /etc/pam.d/login:
+#
+# # AckAgent push authentication
+# auth    [success=done default=ignore]    pam_ackagent.so
+
+# =============================================================
+# Module Options
+# =============================================================
+# The PAM module accepts these optional arguments:
+#
+# config=/path/to/config.conf
+#   - Use alternate configuration file
+#   - Default: /etc/ackagent/pam.conf
+#
+# debug
+#   - Enable debug logging to syslog
+#
+# timeout=N
+#   - Override authentication timeout in seconds
+#
+# Example with options:
+# auth sufficient pam_ackagent.so config=/etc/ackagent/custom.conf timeout=60 debug
+
+# =============================================================
+# Security Considerations
+# =============================================================
+# 1. Always test configuration changes with a backup session open
+# 2. The "sufficient" control ensures fallback to password auth
+# 3. Use "required" only if you're certain AckAgent is always available
+# 4. Consider network outages - "sufficient" is safer than "required"

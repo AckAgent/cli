@@ -1,0 +1,13 @@
+#!/bin/bash
+# AckAgent PAM Post-Install Script
+
+set -e
+
+# Ensure executables have correct permissions
+chmod 755 /usr/local/bin/ackagent-pam
+chmod 755 /usr/local/lib/pam/pam_ackagent.so
+
+# Log installation
+logger "AckAgent PAM module and CLI installed successfully"
+
+exit 0

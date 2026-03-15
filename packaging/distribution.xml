@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<installer-gui-script minSpecVersion="2">
+    <title>AckAgent CLI Tools</title>
+    <organization>com.ackagent</organization>
+    <domains enable_localSystem="true"/>
+    <options customize="never" require-scripts="true" rootVolumeOnly="true" hostArchitectures="arm64"/>
+
+    <!-- Minimum macOS 11.0 (Big Sur) - first with ARM support -->
+    <volume-check>
+        <allowed-os-versions>
+            <os-version min="11.0"/>
+        </allowed-os-versions>
+    </volume-check>
+
+    <welcome file="welcome.html" mime-type="text/html"/>
+
+    <choices-outline>
+        <line choice="default">
+            <line choice="com.ackagent.cli"/>
+        </line>
+    </choices-outline>
+
+    <choice id="default"/>
+
+    <choice id="com.ackagent.cli" visible="false">
+        <pkg-ref id="com.ackagent.cli"/>
+    </choice>
+
+    <pkg-ref id="com.ackagent.cli" version="0" onConclusion="none">ackagent-cli-component.pkg</pkg-ref>
+</installer-gui-script>
