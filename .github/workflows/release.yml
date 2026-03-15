@@ -44,7 +44,7 @@ jobs:
           VERSION: ${{ steps.version.outputs.version }}
         run: |
           CGO_ENABLED=1 go build \
-            -ldflags="-X main.version=${VERSION}" \
+            -ldflags="-X github.com/ackagent/cli/internal/shared/version.Version=${VERSION}" \
             -o "ackagent-${GOOS}-${GOARCH}" \
             ./cmd/ackagent
 
